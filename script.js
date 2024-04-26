@@ -55,4 +55,37 @@ document.addEventListener('DOMContentLoaded', () => {
       function createMealCard(meal) {
         const mealCard = document.createElement('div');
         mealCard.classList.add('card', 'mb-3');
+
+        mealCard.innerHTML = `
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img src="${meal.strMealThumb}" class="card-img" alt="${meal.strMeal}">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">${meal.strMeal}</h5>
+              <p class="card-text">Meal ID: ${meal.idMeal}</p>
+              <p class="card-text">Category: ${meal.strCategory}</p>
+              <p class="card-text">${meal.strInstructions}</p>
+            </div>
+          </div>
+        </div>
+      `;
+  
+      return mealCard;
+    }
+  
+    
+    function debounce(func, delay) {
+      let timeoutId;
+      return function() {
+        const context = this;
+        const args = arguments;
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => {
+          func.apply(context, args);
+        }, delay);
+      };
+    }
+});
     
