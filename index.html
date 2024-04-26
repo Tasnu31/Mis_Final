@@ -2,15 +2,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Meal Finder</title>
+    <title> Delicious Meal Discoveries</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <header class="bg-dark text-white py-4">
+    <!-- <header class="bg-dark text-white py-4"> -->
+    <header class="py-4" >
         <div class="container">
-            <h1 class="text-center">Meal Finder</h1>
+            <h1 class="text-center">Delicious Meal Discoveries</h1>
+            <h3 class="text_center_2">Find the meal that your stomach desire</h3>
             <div class="search-container d-flex justify-content-center">
                 <input type="text" id="searchInput" class="form-control mr-2" placeholder="Search category of meal...">
                 <button class="btn btn-primary" onclick="searchMeal()">Search</button>
@@ -22,6 +26,20 @@
         <div class="container" id="mealContainer">
             
         </div>
+
+        <div id="mealResults" class="row"></div>
+      
+        <button id="showAllButton" class="btn btn-secondary mt-4 d-none">SHOW ALL</button>
+      
+    </main>
+    
+    <footer>
+      <div class="container">
+        <p class="text-white text-center">&copy; 2024 Delicious Meal Discoveries</p>
+      </div>
+    </footer>
+
+    
     </main> 
     <script src="script.js"></script>  
 </body>
