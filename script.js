@@ -51,4 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
           showAllButton.classList.add('d-none'); 
         }
       }
+
+      function createMealCard(meal) {
+        const mealCard = document.createElement('div');
+        mealCard.classList.add('card', 'mb-3');
     
