@@ -12,9 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const searchTerm = searchInput.value.trim();
   
       if (searchTerm === '') {
-        mealContainer.innerHTML = ''; // Clear previous results
+        mealContainer.innerHTML = ''; 
         mealResults.innerHTML = '';
-        showAllButton.classList.add('d-none'); // Hide the "SHOW ALL" button
+        showAllButton.classList.add('d-none'); 
         return;
       }
 
@@ -22,10 +22,33 @@ document.addEventListener('DOMContentLoaded', () => {
       const data = await response.json();
   
       if (data.meals) {
-        mealContainer.innerHTML = ''; // Clear previous results
-        mealResults.innerHTML = ''; // Clear previous results
+        mealContainer.innerHTML = ''; 
+        mealResults.innerHTML = ''; 
   
         data.meals.slice(0, 5).forEach(meal => {
           const mealCard = createMealCard(meal);
           mealContainer.appendChild(mealCard);
         });
+
+        if (data.meals.length > 5) {
+            showAllButton.classList.remove('d-none'); 
+            showAllButton.addEventListener('click', () => {
+              mealResults.innerHTML = ''; 
+    
+              data.meals.slice(5).forEach(meal => {
+                const mealCard = createMealCard(meal);
+                mealResults.appendChild(mealCard);
+              });
+    
+              showAllButton.classList.add('d-none'); 
+            });
+          } else {
+            showAllButton.classList.add('d-none'); 
+          }
+        } else {
+          mealContainer.innerHTML = '<p class="text-center">No meals found. Please try a different search term.</p>';
+          mealResults.innerHTML = '';
+          showAllButton.classList.add('d-none'); 
+        }
+      }
+    
